@@ -15,38 +15,50 @@
             color: #333;
         }
         header {
-            background-color: #333;
+            background-color: #1E90FF;
             color: #fff;
-            padding: 1rem;
+            padding: 2rem 1rem;
             text-align: center;
         }
         nav {
             display: flex;
             justify-content: center;
-            background-color: #444;
+            background-color: #4682B4;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
         nav a {
             color: #fff;
             text-decoration: none;
-            padding: 1rem;
+            padding: 1rem 2rem;
+            transition: background-color 0.3s;
         }
         nav a:hover {
-            background-color: #555;
+            background-color: #1E90FF;
         }
         .container {
             padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
         }
         section {
             margin-bottom: 2rem;
         }
         h2 {
-            color: #444;
+            color: #4682B4;
+            margin-bottom: 1rem;
         }
-        .experience, .education, .projects, .contact {
+        .experience, .education, .projects, .contact, .social {
             background-color: #fff;
-            padding: 1rem;
+            padding: 2rem;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+        .experience:hover, .education:hover, .projects:hover, .contact:hover, .social:hover {
+            transform: translateY(-5px);
         }
         .contact-form {
             display: flex;
@@ -54,33 +66,51 @@
         }
         .contact-form input, .contact-form textarea {
             margin-bottom: 1rem;
-            padding: 0.5rem;
+            padding: 0.75rem;
             border: 1px solid #ccc;
             border-radius: 4px;
         }
         .contact-form button {
-            padding: 0.5rem;
-            background-color: #333;
+            padding: 0.75rem;
+            background-color: #1E90FF;
             color: #fff;
             border: none;
             border-radius: 4px;
             cursor: pointer;
+            transition: background-color 0.3s;
         }
         .contact-form button:hover {
-            background-color: #555;
+            background-color: #4682B4;
         }
         .social-links a {
             margin-right: 1rem;
             text-decoration: none;
-            color: #333;
+            color: #1E90FF;
+            transition: color 0.3s;
+        }
+        .social-links a:hover {
+            color: #4682B4;
         }
         footer {
             text-align: center;
             padding: 1rem;
-            background-color: #333;
+            background-color: #1E90FF;
             color: #fff;
         }
     </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const links = document.querySelectorAll('nav a');
+            links.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetSection = document.getElementById(targetId);
+                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+        });
+    </script>
 </head>
 <body>
     <header>
@@ -88,9 +118,9 @@
         <p>Portfólio Profissional</p>
     </header>
     <nav>
-        <a href="#experience">Experiência Profissional</a>
-        <a href="#education">Formação Acadêmica</a>
-        <a href="#projects">Projetos Pessoais</a>
+        <a href="#experience">Experiência</a>
+        <a href="#education">Formação</a>
+        <a href="#projects">Projetos</a>
         <a href="#contact">Contato</a>
     </nav>
     <div class="container">
@@ -120,7 +150,7 @@
             <div class="social-links">
                 <a href="https://github.com/gabrielportelaime" target="_blank">GitHub</a>
                 <a href="https://instagram.com/gabriellucas9" target="_blank">Instagram</a>
-                <a href="https://twitter.com/gabiluzao" target="_blank">Twitter</a>
+                <a href="https://twitter.com/gabiluzao" target="_blank">X</a>
                 <a href="https://www.beecrowd.com.br/judge/pt/profile/3231" target="_blank">Beecrowd</a>
                 <a href="https://leetcode.com/u/GabrielPortela1997/" target="_blank">Leetcode</a>
                 <a href="https://codeforces.com/profile/GabrielPortela" target="_blank">Codeforces</a>
